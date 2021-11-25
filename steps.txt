@@ -7,3 +7,12 @@ ROSETTACOMMONS_CONDA_PASSWORD=paradox
 In a sentence
 
 $ docker build --build-arg ROSETTACOMMONS_CONDA_USERNAME=levinthal --build-arg ROSETTACOMMONS_CONDA_PASSWORD=paradox -t bonimechanics/localproteinfold:rosettafoldver5_latest  .
+
+Test
+# ROSETTAFOLDDB_PATH points to a folder with the databases untar'ed (bfd, pdb100_2021Mar03, UniRef30_2020_06)
+export ROSETTAFOLDDB_PATH=/media/bni/Elements/databank/0_for_RoseTTAFold
+
+$ docker run -it --gpus=all -v $ROSETTAFOLDDB_PATH/bfd:/RoseTTaFold/bfd -v $ROSETTAFOLDDB_PATH/pdb100_2021Mar03:/RoseTTaFold/pdb100_2021Mar03 -v  $ROSETTAFOLDDB_PATH/UniRef30_2020_06:/RoseTTaFold/UniRef30_2020_06 -v $(pwd):$(pwd) -w $(pwd) bonimechanics/localproteinfold:rosettafoldver5_latest bash
+
+$ docker run -it --gpus=all -v $ROSETTAFOLDDB_PATH/bfd:/RoseTTaFold/bfd -v $ROSETTAFOLDDB_PATH/pdb100_2021Mar03:/RoseTTaFold/pdb100_2021Mar03 -v  $ROSETTAFOLDDB_PATH/UniRef30_2020_06:/RoseTTaFold/UniRef30_2020_06 -v $(pwd):$(pwd) -w $(pwd) bonimechanics/localproteinfold:rosettafoldver5_latest run_pyrosetta_ver.sh input.fa .
+
