@@ -1,0 +1,9 @@
+# Create the docker image directly from the dockerfile
+# ref: https://github.com/RosettaCommons/RoseTTAFold/pull/98
+
+Since pyrosetta need a license, here are the argument
+ROSETTACOMMONS_CONDA_USERNAME=levinthal
+ROSETTACOMMONS_CONDA_PASSWORD=paradox
+In a sentence
+
+$ docker build --build-arg ROSETTACOMMONS_CONDA_USERNAME=levinthal --build-arg ROSETTACOMMONS_CONDA_PASSWORD=paradox -t bonimechanics/localproteinfold:rosettafoldver5_latest  .

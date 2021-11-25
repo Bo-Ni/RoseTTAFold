@@ -15,6 +15,7 @@ ENV PATH /var/conda/bin:$PATH
 
 RUN conda --version
 
+# copy the local code into the docker image
 COPY . /RoseTTaFold
 WORKDIR /RoseTTaFold
 
