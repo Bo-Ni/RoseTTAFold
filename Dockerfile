@@ -30,6 +30,7 @@ RUN wget -q https://files.ipd.uw.edu/pub/RoseTTAFold/weights.tar.gz
 RUN tar xfz weights.tar.gz
 RUN ./install_dependencies.sh
 
+# add path so that .sh files can be called anywhere
 ENV PATH /RoseTTaFold:$PATH
 
 WORKDIR /tmp
